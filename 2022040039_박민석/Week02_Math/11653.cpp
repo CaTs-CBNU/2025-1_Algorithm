@@ -3,17 +3,18 @@ using namespace std;
 
 int main()
 {
-    long long num;
-    int count=0;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    int num;
+    int i=2;
     cin >> num;
-    int c_num = num;
-    for(int i=2;i*i<=num;i++)
+    while(num!=1)
     {
-        while(c_num%i==0)
+        if(num%i==0)
         {
-            c_num=c_num/i;
+            num/=i;
             cout << i << "\n";
         }
-        
+        else i++;
     }
 }
