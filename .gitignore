@@ -229,4 +229,4 @@ Mkfile.old
 dkms.conf
 
 *.exe
-.vscode/
+**/.vscode/
