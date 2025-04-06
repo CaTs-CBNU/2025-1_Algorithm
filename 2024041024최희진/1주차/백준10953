@@ -1,0 +1,22 @@
+#include<iostream>
+#include<string>
+#include<sstream>
+using std::cout;
+using std::cin;
+using std::string;
+int main() {
+	int number;
+	cin >> number;
+	cin.ignore();
+	for (int i = 0; i < number; i++) {
+		string word;		
+		getline(cin, word, '\n');
+		int a2, b2;
+		char coma;
+		std::stringstream ss(word);
+		ss >> a2 >> coma >> b2;
+		cout << a2 + b2<<"\n";
+	}
+
+	return 0;
+}
