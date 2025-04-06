@@ -1,0 +1,21 @@
+#include<iostream>
+#include<string>
+#include<sstream>
+using std::cout;
+using std::cin;
+using std::string;
+int main() {
+	int T;
+	cin >> T;
+	for (int i = T; i >0; i--) {	
+		for (int j = 0; j < T-i; j++) {
+			cout << " ";
+		}
+		for (int j = 0; j < i; j++) {
+			cout << "*";
+		}
+		cout << "\n";
+	}
+
+	return 0;
+}
