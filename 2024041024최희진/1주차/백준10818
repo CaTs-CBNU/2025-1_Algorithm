@@ -1,0 +1,19 @@
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int main() {
+    int nofc;
+    cin >> nofc;
+    vector<int> nofr(nofc);
+    for (int i = 0; i < nofc; i++) {
+        cin >> nofr[i];
+    }
+    int max = nofr[0], min = nofr[0];
+    for (int i = 0; i < nofc; i++) {
+        if (nofr[i] > max) max = nofr[i];
+        if (nofr[i] < min) min = nofr[i];
+    }
+    cout << min << " " << max;
+    return 0;
+}
