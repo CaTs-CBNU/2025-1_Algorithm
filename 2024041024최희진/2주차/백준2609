@@ -1,0 +1,20 @@
+#include<iostream>
+#include<string>
+using std::cout;
+using std::cin;
+using std::string;
+int main() {
+	int a, b;
+	cin >> a >> b;
+	int s = a * b;
+	while (b != 0) {
+		int temp = b;
+		b = a % b;
+		a = temp;
+	}
+	cout << a;
+	int lcm = s/ a;
+	cout<<"\n"<<lcm;
+
+	return 0;
+}
