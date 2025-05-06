@@ -1,0 +1,19 @@
+#include<iostream>
+#include<string>
+using std::cout;
+using std::cin;
+using std::string;
+int GCD(int a, int b)
+{
+	if (b == 0)
+		return a;
+
+	return GCD(b, a % b);
+}
+int main() {
+	long long int a, b, gcd;
+	cin >> a >> b;
+	gcd=GCD(a,b);
+	cout << a*b/gcd;
+    
+}
