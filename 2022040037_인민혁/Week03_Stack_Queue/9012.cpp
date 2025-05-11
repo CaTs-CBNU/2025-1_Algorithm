@@ -27,7 +27,7 @@ int main() {
         }
         if (isVPS && cnt == 0)
             cout << "YES" << '\n';
-        else
+        else 
             cout << "NO" << '\n';
     }
 }
