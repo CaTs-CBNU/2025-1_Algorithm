@@ -18,7 +18,10 @@ public:
     }
     void pop() {
         if (ind <= 0) cout << -1 << '\n';
-        else cout << arr[--ind] << '\n';
+        else {
+            cout << arr[--ind] << '\n';
+            arr.resize(ind);
+        }
     }
     void size() {
         cout << ind << '\n';
