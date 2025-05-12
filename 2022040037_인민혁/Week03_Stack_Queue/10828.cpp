@@ -1,38 +1,44 @@
 #include <iostream>
-#include <vector>
-#include <string>
 
 using namespace std;
 
 class Stack {
-    int ind;
-    vector<int> arr;
+    int tp;
+    int capacity;
+    int* arr;
+    void resize() {
+        int newCap = capacity * 2;
+        int* newArr = new int[newCap];
+        for (int i = 0; i < tp; i++)
+            newArr[i] = arr[i];
+        delete[]arr;
+        arr = newArr;
+        capacity = newCap;
+    }
 public:
     Stack() {
-        ind = 0;
-        arr.resize(ind);
+        tp = 0;
+        capacity = 2;
+        arr = new int[capacity];
     }
+    ~Stack() { delete[]arr; }
     void push(int n) {
-        arr.resize(ind + 1);
-        arr[ind++] = n;
+        if (tp == capacity - 1)
+            resize();
+        arr[tp++] = n;
     }
-    void pop() {
-        if (ind <= 0) cout << -1 << '\n';
-        else {
-            cout << arr[--ind] << '\n';
-            arr.resize(ind);
-        }
+    int pop() {
+        if (tp != 0) return arr[--tp];
+        else return -1;
     }
-    void size() {
-        cout << ind << '\n';
+    int size() { return tp; }
+    int empty() {
+        if (tp == 0) return 1;
+        else return 0;
     }
-    void empty() {
-        if (ind <= 0) cout << 1 << '\n';
-        else cout << 0 << '\n';
-    }
-    void top() {
-        if (ind <= 0) cout << -1 << '\n';
-        else cout << arr[ind - 1] << '\n';
+    int top() {
+        if (tp == 0) return -1;
+        else return arr[tp - 1];
     }
 };
 
@@ -52,12 +58,12 @@ int main() {
             S.push(num);
         }
         else if (command == "pop")
-            S.pop();
+            cout << S.pop() << '\n';
         else if (command == "size")
-            S.size();
+            cout << S.size() << '\n';
         else if (command == "empty")
-            S.empty();
+            cout << S.empty() << '\n';
         else if (command == "top")
-            S.top();
+            cout << S.top() << '\n';
     }
 }
