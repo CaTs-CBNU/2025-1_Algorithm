@@ -31,7 +31,7 @@ int main() {
                     arr.push(tmpC);
         }
     }
-    if (arr.size() == 0) cout << "FRULA\n";
+    if (arr.empty()) cout << "FRULA\n";
     else {
         string tmp;
         while (!arr.empty()) {
