@@ -1,27 +1,37 @@
 #include <iostream>
-#include <vector>
-#include <string>
 
 using namespace std;
 
 class Money {
-    int ind;
+    int top;
+    int size;
     int sum;
-    vector<int> arr;
+    int* arr;
+    void resize() {
+        int newSize = size * 2;
+        int* newArr = new int[newSize];
+        for (int i = 0; i < top; i++)
+            newArr[i] = arr[i];
+        delete[]arr;
+        arr = newArr;
+        size = newSize;
+    }
 public:
     Money() {
-        ind = 0;
+        top = 0;
+        size = 2;
         sum = 0;
-        arr.resize(ind);
+        arr = new int[size];
     }
     void income(int n) {
-        arr.resize(ind + 1);
-        arr[ind++] = n;
+        if (top == size)
+            resize();
+        arr[top++] = n;
         sum += n;
     }
     void error() {
-        sum -= arr[--ind];
-        arr.resize(ind);
+        if (top != 0)
+            sum -= arr[--top];
     }
     int getSum() {
         return sum;
